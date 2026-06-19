@@ -1,0 +1,14 @@
+[
+  {
+    "id": "0b759f97",
+    "trigger_time": "2026-06-20T07:00:00",
+    "label": "Wake Up",
+    "repeat_daily": false
+  },
+  {
+    "id": "6a98af7a",
+    "trigger_time": "2026-06-20T21:56:00",
+    "label": "Wake Up - daily",
+    "repeat_daily": true
+  }
+]
