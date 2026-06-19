@@ -1,14 +1,14 @@
 [
   {
-    "id": "0b759f97",
-    "trigger_time": "2026-06-20T07:00:00",
-    "label": "Wake Up",
-    "repeat_daily": false
+    "id": "6a98af7a",
+    "trigger_time": "2026-06-20T22:38:25.468675",
+    "label": "Wake Up 2",
+    "repeat_daily": true
   },
   {
-    "id": "6a98af7a",
-    "trigger_time": "2026-06-20T21:56:00",
-    "label": "Wake Up - daily",
+    "id": "ce55f75a",
+    "trigger_time": "2026-06-20T20:18:35",
+    "label": "Wake Up 3",
     "repeat_daily": true
   }
 ]
