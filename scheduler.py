@@ -1,6 +1,7 @@
 import time
 from datetime import datetime, timedelta
 from storage import load_alarms, save_alarms
+import threading
 
 from storage import (
     load_alarms,
@@ -8,7 +9,7 @@ from storage import (
 )
 
 
-def trigger_alarm(alarm):
+def trigger_alarm(alarm, timeout=10):
     print("\n")
     print("=" * 40)
     print(f"ALARM: {alarm.label}")
@@ -18,10 +19,27 @@ def trigger_alarm(alarm):
     print("\nOptions:")
     print("[s] Snooze 5 minutes")
     print("[d] Dismiss")
+    print(f"(Auto-dismiss in {timeout} seconds)")
 
-    choice = input("Choose: ").strip().lower()
+    result = {"choice": None}
 
-    return choice
+    def get_input():
+        try:
+            result["choice"] = input("Choose: ").strip().lower()
+        except:
+            result["choice"] = None
+
+    thread = threading.Thread(target=get_input)
+    thread.daemon = True
+    thread.start()
+
+    thread.join(timeout)
+
+    if result["choice"] is None:
+        print("No input received → auto dismiss")
+        return "d"
+
+    return result["choice"]
 
 def snooze_alarm(trigger_time, minutes=5):
     return (trigger_time + timedelta(minutes=minutes)).isoformat()
@@ -47,7 +65,7 @@ def run_scheduler():
 
             if now >= trigger_time:
 
-                choice = trigger_alarm(alarm)
+                choice = trigger_alarm(alarm, timeout=10)
 
                 # =========================
                 # SNOOZE LOGIC ADDED HERE
