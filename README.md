@@ -1,7 +1,3 @@
-Here’s a clean, complete `README.md` you can drop into your project.
-
----
-
 # ⏰ Alarm Clock CLI (Python)
 
 A simple command-line alarm clock built in Python.
@@ -222,7 +218,3 @@ This project prioritizes:
 * simplicity over scalability
 * readability over optimization
 * CLI usability over architecture complexity
-
----
-
-If you want, I can next help you turn this into a **real installable CLI tool (`alarm` command globally)** — that’s usually the final “production-level” step for a project like this.
